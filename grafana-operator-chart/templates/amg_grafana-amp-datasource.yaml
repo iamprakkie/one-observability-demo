@@ -11,12 +11,12 @@ spec:
     name: grafana-operator-amp-datasource
     type: prometheus
     access: proxy
-    url: ${AMP_ENDPOINT_URL}
+    url: {{ index .ConfigMaps .Values.configMapName "AMP_ENDPOINT_URL" }}
     isDefault: true
     jsonData:
       'tlsSkipVerify': false
       'timeInterval': "5s"
       'sigV4Auth': true
       'sigV4AuthType': "ec2_iam_role"
-      'sigV4Region': ${AMG_AWS_REGION}
+      'sigV4Region': {{ index .ConfigMaps .Values.configMapName "AMG_AWS_REGION" }}
     editable: true 

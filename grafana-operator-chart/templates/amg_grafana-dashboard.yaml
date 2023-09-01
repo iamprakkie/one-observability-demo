@@ -7,4 +7,4 @@ spec:
   instanceSelector:
     matchLabels:
       dashboards: "external-grafana"
-  url: ${GRAFANA_NODEEXP_DASH_URL}
+  url: {{ index .ConfigMaps .Values.configMapName "GRAFANA_NODEEXP_DASH_URL" }}

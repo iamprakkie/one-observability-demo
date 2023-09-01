@@ -1,1 +1,2 @@
 kubernetesClusterDomain: cluster.local
+configMapName: cluster-vars
