@@ -7,7 +7,7 @@ metadata:
     dashboards: "external-grafana"
 spec:
   external:
-    url: {{ index .ConfigMaps .Values.configMapName "AMG_ENDPOINT_URL" }}
+    url: {{ (lookup "v1" "ConfigMap" "argocd" "cluster-vars").data.AMG_ENDPOINT_URL }} 
     apiKey:
       name: grafana-admin-credentials
       key: GF_SECURITY_ADMIN_APIKEY
