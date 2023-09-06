@@ -14,6 +14,6 @@ spec:
     jsonData:
       "authType": "ec2_iam_role"
       # "defaultRegion": {{ (lookup "v1" "ConfigMap" "argocd" "cluster-vars").data.AMG_AWS_REGION | default "no_value_yet" }}
-      "defaultRegion": {{ Values.AMG_AWS_REGION | default "no_value_yet" }}
+      "defaultRegion": AMG_AWS_REGION
       "provisionedBy": "aws-datasource-provisioner-app"
     editable: true
