@@ -11,7 +11,7 @@ spec:
     name: grafana-operator-amp-datasource
     type: prometheus
     access: proxy
-    url: AMP_ENDPOINT_URL
+    url: {{ $.Values.AMP_ENDPOINT_URL }}
     isDefault: true
     jsonData:
       'tlsSkipVerify': false
