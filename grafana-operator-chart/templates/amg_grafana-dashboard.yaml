@@ -7,5 +7,4 @@ spec:
   instanceSelector:
     matchLabels:
       dashboards: "external-grafana"
-  # url: {{ (lookup "v1" "ConfigMap" "argocd" "cluster-vars").data.GRAFANA_NODEEXP_DASH_URL | default "no_value_yet" }}
   url: "GRAFANA_NODEEXP_DASH_URL"

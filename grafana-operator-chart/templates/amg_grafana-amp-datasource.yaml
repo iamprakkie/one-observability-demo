@@ -11,7 +11,6 @@ spec:
     name: grafana-operator-amp-datasource
     type: prometheus
     access: proxy
-    # url: {{ (lookup "v1" "ConfigMap" "argocd" "cluster-vars").data.AMP_ENDPOINT_URL | default "no_value_yet" }}
     url: "AMP_ENDPOINT_URL"
     isDefault: true
     jsonData:
@@ -19,6 +18,5 @@ spec:
       'timeInterval': "5s"
       'sigV4Auth': true
       'sigV4AuthType': "ec2_iam_role"
-      # 'sigV4Region': {{ (lookup "v1" "ConfigMap" "argocd" "cluster-vars").data.AMG_AWS_REGION | default "no_value_yet" }}
       'sigV4Region': AMG_AWS_REGION
     editable: true 
