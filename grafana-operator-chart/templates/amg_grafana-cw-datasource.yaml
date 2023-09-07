@@ -1,7 +1,7 @@
 apiVersion: grafana.integreatly.org/v1beta1
 kind: GrafanaDatasource
 metadata:
-  name: grafanadatasource-sample-cw
+  name: grafanadatasource-cw
 spec:
   instanceSelector:
     matchLabels:
@@ -14,8 +14,9 @@ spec:
     jsonData:
       'tlsSkipVerify': false
       'timeInterval': "5s"
-      "sigV4Auth": true,
+      "sigV4Auth": true
       "sigV4AuthType": "ec2_iam_role"
+      'sigV4AssumeRoleArn': "arn:aws:iam::{{ $.Values.AMP_ACCOUNT_ID }}:role/cloudwatchDataSourceRole"      
       "sigV4Region": {{ $.Values.AMG_AWS_REGION }}
       "customMetricsNamespaces": "ContainerInsights/Prometheus"
       "defaultRegion": {{ $.Values.AMG_AWS_REGION }}
